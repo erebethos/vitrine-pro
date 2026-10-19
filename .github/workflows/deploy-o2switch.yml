@@ -1,0 +1,40 @@
+name: Publier le portfolio sur o2switch
+
+on:
+  push:
+    branches: [refonte-pro-2026]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: portfolio-o2switch
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: vars.O2_DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Récupérer la version
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Générer et vérifier le site public
+        env:
+          SITE_ORIGIN: https://portfolio.jobandjudith.com
+        run: |
+          node --version
+          npm run build
+          npm test
+          npm run check
+      - name: Publier sur le sous-domaine
+        env:
+          O2_SSH_USER: ${{ secrets.O2_SSH_USER }}
+          O2_SSH_PRIVATE_KEY: ${{ secrets.O2_SSH_PRIVATE_KEY }}
+          O2_SSH_KNOWN_HOSTS: ${{ secrets.O2_SSH_KNOWN_HOSTS }}
+          O2_CPANEL_TOKEN: ${{ secrets.O2_CPANEL_TOKEN }}
+          O2_DEPLOY_PATH: ${{ secrets.O2_DEPLOY_PATH }}
+        run: node scripts/deploy-o2switch.mjs

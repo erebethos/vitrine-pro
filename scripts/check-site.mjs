@@ -1,7 +1,9 @@
 import { readFile, access } from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import { english, messages } from '../dist/assets/content.mjs';
+import { site } from '../site.config.mjs';
 const root = new URL('../dist/', import.meta.url);
+const expectedOrigin = new URL(process.env.SITE_ORIGIN || site.previewOrigin).origin;
 for (const [path, lang] of [['index.html','fr'],['en/index.html','en']]) {
   const url = new URL(path, root);
   const html = await readFile(url, 'utf8');
@@ -19,6 +21,9 @@ for (const [path, lang] of [['index.html','fr'],['en/index.html','en']]) {
   assert.ok(!html.includes('href="#"'), `${path}: dummy link`);
   assert.ok(!html.includes('version pédagogique'), `${path}: obsolete school copy`);
   assert.ok(html.includes('rel="canonical"'));
+  assert.ok(html.includes(`rel="canonical" href="${expectedOrigin}/${lang === 'en' ? 'en/' : ''}"`));
+  assert.ok(html.includes(`hreflang="en" href="${expectedOrigin}/en/"`));
+  assert.ok(html.includes(`hreflang="fr" href="${expectedOrigin}/"`));
   assert.ok(html.includes('hreflang="en"'));
   assert.ok(html.includes('hreflang="fr"'));
   assert.ok(html.includes('data-language="en"'));

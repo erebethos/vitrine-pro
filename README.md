@@ -56,11 +56,15 @@ La future application JavaScript/Python/SQL est une piste réservée au laborato
 - Confirmer les dates et modalités exactes du stage ; aucune date n’a été inventée dans la vitrine.
 - Valider les formulations de compétences et les traductions avec François.
 - Faire une passe visuelle réelle sur ordinateur et téléphone.
-- Choisir l’URL publique finale et adapter canonical/hreflang si le domaine change.
+- Créer le sous-domaine retenu `portfolio.jobandjudith.com` et configurer les accès de publication.
 - Rendre publics uniquement les dépôts ou extraits choisis explicitement.
 
 ## Hébergement
 
-`.openai/hosting.json` identifie la version de validation hébergée avec Sites. Le site reste portable vers un hébergement statique. Les URL canoniques actuelles pointent vers cette version ; les adapter lors d’une migration.
+`.openai/hosting.json` identifie la version de validation hébergée avec Sites. `site.config.mjs` définit également la destination publique `https://portfolio.jobandjudith.com` chez o2switch.
+
+Le build standard conserve les métadonnées de la version de validation. Le workflow o2switch fournit `SITE_ORIGIN=https://portfolio.jobandjudith.com` pour générer canonical et hreflang sur le domaine public.
+
+La publication GitHub vers o2switch est préparée dans `.github/workflows/deploy-o2switch.yml`. Elle attend les secrets du compte et la variable `O2_DEPLOY_ENABLED=true`. Lire [la procédure de configuration](docs/deploy-o2switch.md). Aucun déploiement o2switch n’est annoncé comme effectué tant que le workflow n’a pas réussi.
 
 La branche `main` conserve le projet scolaire. La refonte est isolée dans `refonte-pro-2026` ; aucune fusion dans `main` n’est réalisée automatiquement.
