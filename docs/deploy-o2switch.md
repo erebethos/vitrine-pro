@@ -1,6 +1,8 @@
 # Publier sur portfolio.jobandjudith.com
 
-Destination retenue : **https://portfolio.jobandjudith.com**, serveur **defr6769.odns.fr**.
+Destination retenue : **https://portfolio.jobandjudith.com**, serveur **oliviolet.o2switch.net**, identifiant cPanel **defr6769** (confirmés par le mail de bienvenue).
+
+`defr6769.odns.fr` est l’adresse technique du site. Le déploiement utilise le nom du serveur indiqué dans le mail : `oliviolet.o2switch.net`.
 
 Le code est prêt. Le sous-domaine, le certificat HTTPS et les autorisations restent à configurer dans le compte o2switch. Aucune connexion authentifiée à ce compte n’a encore été réalisée depuis ce projet.
 
@@ -20,7 +22,7 @@ Sur ton ordinateur, générer une nouvelle paire de clés dans un emplacement qu
 
 Installer uniquement sa **clé publique** dans les clés autorisées du compte cPanel. La clé privée sera placée dans un secret GitHub.
 
-Après autorisation SSH de l’IP de ton ordinateur dans cPanel, établir une première connexion au serveur en vérifiant son empreinte. Récupérer ensuite l’entrée correspondante du fichier `known_hosts` de ton ordinateur : elle identifie le serveur pour le déploiement. Pour rechercher cette entrée, utiliser `ssh-keygen -F defr6769.odns.fr`. Conserver les lignes de clé, sans la ligne de commentaire du résultat.
+Après autorisation SSH de l’IP de ton ordinateur dans cPanel, établir une première connexion au serveur avec `ssh defr6769@oliviolet.o2switch.net` en vérifiant son empreinte. Récupérer ensuite l’entrée correspondante du fichier `known_hosts` de ton ordinateur : elle identifie le serveur pour le déploiement. Pour rechercher cette entrée, utiliser `ssh-keygen -F oliviolet.o2switch.net`. Conserver les lignes de clé, sans la ligne de commentaire du résultat.
 
 Référence : [connexion SSH o2switch](https://faq.o2switch.fr/guides/webmastering/connexion-ssh/).
 
@@ -36,7 +38,7 @@ Dans `erebethos/vitrine-pro`, ouvrir **Settings → Secrets and variables → Ac
 
 | Secret | Valeur |
 | --- | --- |
-| `O2_SSH_USER` | Identifiant technique du compte cPanel |
+| `O2_SSH_USER` | `defr6769` |
 | `O2_SSH_PRIVATE_KEY` | Contenu complet de la clé privée de déploiement |
 | `O2_SSH_KNOWN_HOSTS` | Entrée du serveur obtenue après vérification de la connexion SSH |
 | `O2_CPANEL_TOKEN` | Jeton d’API cPanel dédié |

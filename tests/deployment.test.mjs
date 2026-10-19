@@ -6,7 +6,7 @@ const env = { O2_SSH_USER: 'user123', O2_DEPLOY_PATH: '/home/user123/portfolio.j
 test('deployment is limited to the selected subdomain, with backups outside the webroot', () => {
   const plan = deploymentPlan(env);
   assert.equal(plan.origin, 'https://portfolio.jobandjudith.com');
-  assert.equal(plan.server, 'defr6769.odns.fr');
+  assert.equal(plan.server, 'oliviolet.o2switch.net');
   assert.equal(plan.destination, env.O2_DEPLOY_PATH);
   assert.ok(!plan.backup.startsWith(`${plan.destination}/`));
 });
