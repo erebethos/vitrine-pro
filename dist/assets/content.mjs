@@ -9,7 +9,7 @@ export const english = {
   diagramTitle: 'CONNECTIONS MATTER', diagramSvgTitle: 'A simple network topology', diagramSvgDesc: 'A router connected to a switch, which connects two computers and a server. An illustrative diagram, not a monitored network.',
   diagramNote: 'A topology, not a black box.', diagramCaption: 'Illustrative diagram · no real equipment monitored',
   certObtained: 'Certification earned · 2026', certPreparing: 'Currently preparing', practice: 'Personal practice & academic projects',
-  badgeAlt: 'Official Cisco Certified Support Technician — Networking badge', badgeLinkLabel: 'About the Cisco CCST Networking certification on Credly',
+  badgeAlt: 'Official Cisco Certified Support Technician — Networking badge', badgeLinkLabel: 'Verify François de Gennaro’s CCST Networking certification on Credly',
   portraitAlt: 'Portrait of François de Gennaro', portraitLabel: 'FRANÇOIS DE GENNARO · MONS, BE',
   profileEyebrow: 'Networks first. Curiosity everywhere.', profileTitle: 'Understanding what’s under the hood.',
   profileP1: 'I’m in the second year of a bachelor’s degree in computer science at IPHLF in Mons. My direction: networking, system administration and infrastructure, with an interest in automation.',

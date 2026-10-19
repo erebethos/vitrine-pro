@@ -31,7 +31,7 @@ Ne pas ouvrir les fichiers via `file://` : les modules JavaScript ont besoin d�
 
 ## Choix techniques
 
-- Badge officiel CCST Networking : image Cisco provenant de [la fiche Credly de la certification](https://www.credly.com/org/cisco/badge/cisco-certified-support-technician-networking-ccst-.1), conservée sans modification. Le lien présente la certification, pas une attestation nominative ; il pourra être remplacé par le badge Credly personnel de François.
+- Badge officiel CCST Networking : image Cisco provenant de [la fiche Credly de la certification](https://www.credly.com/org/cisco/badge/cisco-certified-support-technician-networking-ccst-.1), conservée sans modification. Le badge renvoie vers [l’attestation nominative Credly fournie par François](https://www.credly.com/badges/8d5ce9d3-778d-4cd7-ad94-d92cddac642f/public_url).
 
 - Deux URL FR/EN réelles, générées depuis une structure commune ; `lang`, titres, descriptions, canonical et hreflang localisés.
 - Préférence de langue stockée localement quand le navigateur l’autorise. Les liens restent fonctionnels sans stockage ni JavaScript.
