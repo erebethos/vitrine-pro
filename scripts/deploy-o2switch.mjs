@@ -28,8 +28,16 @@ async function run(command, args, signal) {
 }
 
 async function requestJson(url, options = {}) {
-  const response = await fetch(url, { ...options, redirect: 'error', signal: options.signal || AbortSignal.timeout(45000) });
-  if (!response.ok) throw new Error(`Requête HTTPS refusée (${response.status}).`);
+  const target = new URL(url);
+  let response;
+  try {
+    response = await fetch(url, { ...options, redirect: 'error', signal: options.signal || AbortSignal.timeout(45000) });
+  } catch (error) {
+    // Do not log headers, credentials, query parameters or response bodies.
+    const code = error.cause?.code || error.name || 'NETWORK_ERROR';
+    throw new Error(`HTTPS ${target.host}${target.pathname}: ${code}.`);
+  }
+  if (!response.ok) throw new Error(`HTTPS ${target.host}${target.pathname}: statut ${response.status}.`);
   return response.json();
 }
 
@@ -59,14 +67,17 @@ export async function deploy(env = process.env) {
     return data.data;
   };
   try {
+    console.log('Déploiement : identification IPv4 du runner.');
     const ip = await requestJson('https://api4.ipify.org?format=json', { signal: AbortSignal.any([controller.signal, AbortSignal.timeout(15000)]) });
     if (isIP(ip.ip) !== 4) throw new Error('Adresse IPv4 du runner non disponible.');
     runnerIp = ip.ip;
+    console.log('Déploiement : lecture de la liste blanche SSH.');
     const previous = await api('list');
     if (!Array.isArray(previous?.list)) throw new Error('Liste blanche o2switch non lisible.');
     existingDirections = new Set(previous.list.filter(item => item.address === runnerIp && Number(item.port) === 22).map(item => item.direction));
     if (!existingDirections.has('in') || !existingDirections.has('out')) {
       attemptedWhitelist = true;
+      console.log('Déploiement : autorisation temporaire SSH.');
       await api('add', { address: runnerIp, port: 22 });
     }
     // Keep pre-existing entries: cleanup only removes directions added by this run.
@@ -82,11 +93,14 @@ export async function deploy(env = process.env) {
     const remote = `${plan.user}@${plan.server}`;
     // Path and username have been restricted above; never deploy to the home or main web root.
     const command = `mkdir -p -- '${plan.destination}' && test "$(readlink -f -- '${plan.destination}')" = '${plan.destination}' && mkdir -p -- '${plan.backup}'`;
+    console.log('Déploiement : connexion SSH et vérification du dossier.');
     await run('ssh', [...options, remote, command], controller.signal);
     await writeFile(new URL('../dist/deployment.json', import.meta.url), `${JSON.stringify({ revision: plan.revision, builtAt: new Date().toISOString() })}\n`);
     // No --delete: unrelated remote files are preserved. Replaced files have an off-webroot backup.
     const transport = ['ssh', ...options.map(option => `'${option.replaceAll("'", "'\\''")}'`)].join(' ');
+    console.log('Déploiement : transfert des fichiers.');
     await run('rsync', ['--archive', '--compress', '--checksum', '--delay-updates', '--backup', `--backup-dir=${plan.backup}`, '--timeout=60', '-e', transport, 'dist/', `${remote}:${plan.destination}/`], controller.signal);
+    console.log('Déploiement : vérification HTTPS de la révision publique.');
     const live = await requestJson(`${plan.origin}/deployment.json?revision=${plan.revision}`, { cache: 'no-store', signal: AbortSignal.any([controller.signal, AbortSignal.timeout(20000)]) });
     if (live.revision !== plan.revision) throw new Error('Les fichiers ont été transférés, mais la révision publique ne correspond pas. Vérifier le sous-domaine et sa racine.');
     console.log(`Version vérifiée sur ${plan.origin}`);
