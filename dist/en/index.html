@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173f35">
+  <title>François de Gennaro — Networks & infrastructure</title>
+  <meta name="description" content="Computer science student in Mons, Belgium, and CCST Networking certified. Explore my networking, Linux, Java and SQL projects, plus an interactive IPv4 lab.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="François de Gennaro — Networks & infrastructure">
+  <meta property="og:description" content="Networks and systems, hands-on projects, code and an interactive IPv4 lab.">
+  <meta property="og:locale" content="en_GB">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <link rel="canonical" href="https://francois-de-gennaro-reseaux.glossywand.chatgpt.site/en/">
+  <link rel="alternate" hreflang="fr" href="https://francois-de-gennaro-reseaux.glossywand.chatgpt.site/">
+  <link rel="alternate" hreflang="en" href="https://francois-de-gennaro-reseaux.glossywand.chatgpt.site/en/">
+  <link rel="alternate" hreflang="x-default" href="https://francois-de-gennaro-reseaux.glossywand.chatgpt.site/">
+  <script type="module" src="../assets/app.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#accueil" aria-label="François de Gennaro — Home" data-i18n-aria="brandLabel"><span class="brand-symbol" aria-hidden="true">f<span>.</span></span><span>François<br><strong>de Gennaro</strong></span></a>
+      <nav class="main-nav" aria-label="Main navigation" data-i18n-aria="navigation">
+        <a href="#profil" data-i18n="navProfile">Profile</a>
+        <a href="#competences" data-i18n="navSkills">Skills</a>
+        <a href="#projets" data-i18n="navProjects">Projects</a>
+        <a href="#laboratoire" data-i18n="navLab">Lab</a>
+      </nav>
+      <div class="header-actions">
+        <nav class="language-nav" aria-label="Language" data-i18n-aria="languageLabel"><a href="../?lang=fr" lang="fr" hreflang="fr" data-language="fr">FR</a><span aria-hidden="true">/</span><a href="./" lang="en" hreflang="en" data-language="en" aria-current="page">EN</a></nav>
+        <a class="header-contact" href="#contact"><span data-i18n="navContact">Contact</span><span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="accueil" class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span><span data-i18n="heroStatus">Looking for an internship</span></p>
+        <h1 id="hero-title"><span data-i18n="heroLine1">Understand.</span><em data-i18n="heroLine2">Connect.</em><span data-i18n="heroLine3">Build.</span></h1>
+        <p class="hero-intro" data-i18n="heroIntro">I’m François de Gennaro, a computer science student in Mons, Belgium, focusing on networks and infrastructure.</p>
+        <p class="hero-support" data-i18n="heroSupport">The systems behind the interfaces. The packets behind the exchanges. And the code that connects them.</p>
+        <div class="hero-cta"><a class="button button-primary" href="#projets"><span data-i18n="heroProjects">Explore my projects</span><span aria-hidden="true">↗</span></a><a class="text-link" href="#contact" data-i18n="heroContact">Let’s talk internships</a></div>
+        <p class="hero-location"><span aria-hidden="true">⌖</span><span data-i18n="location">Mons, Belgium · FR / EN</span></p>
+      </div>
+      <div class="network-sheet">
+        <div class="sheet-heading"><span class="mono" data-i18n="diagramTitle">CONNECTIONS MATTER</span><span class="sheet-index">FIG. 01</span></div>
+        <svg class="topology" viewBox="0 0 520 390" role="img" aria-labelledby="topology-title topology-desc">
+          <title id="topology-title" data-i18n="diagramSvgTitle">A simple network topology</title>
+          <desc id="topology-desc" data-i18n="diagramSvgDesc">A router connected to a switch, which connects two computers and a server. An illustrative diagram, not a monitored network.</desc>
+          <defs><pattern id="grid" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#cad1c3"/></pattern></defs>
+          <rect width="520" height="390" fill="url(#grid)"/>
+          <g fill="none" stroke="#819a87" stroke-width="1.5"><path d="M260 88V176M260 216V280H90V298M260 280V298M260 280H430V298"/><path d="M260 32V52" stroke-dasharray="3 5"/></g>
+          <g fill="#173f35"><circle cx="260" cy="136" r="4"/><circle cx="176" cy="280" r="4"/><circle cx="348" cy="280" r="4"/></g>
+          <g class="router" transform="translate(224 52)"><rect width="72" height="52" rx="9" fill="#173f35"/><path d="M19 19H38M33 14L38 19 33 24M53 34H34M39 29L34 34 39 39" stroke="#f3f0e6" stroke-width="1.6" fill="none"/></g>
+          <text x="308" y="76" class="node-label">R1</text><text x="308" y="93" class="ip-label">10.0.0.1</text>
+          <g transform="translate(216 176)"><rect width="88" height="40" rx="5" fill="#fffdf7" stroke="#173f35" stroke-width="1.5"/><g fill="#173f35"><rect x="13" y="14" width="9" height="8"/><rect x="29" y="14" width="9" height="8"/><rect x="45" y="14" width="9" height="8"/><rect x="61" y="14" width="9" height="8"/></g></g>
+          <text x="318" y="199" class="node-label">SW1</text>
+          <g transform="translate(65 298)" stroke="#173f35" fill="#fffdf7" stroke-width="1.5"><rect width="50" height="33" rx="3"/><path d="M25 33V42M12 42H38"/></g>
+          <g transform="translate(235 298)" stroke="#173f35" fill="#fffdf7" stroke-width="1.5"><rect width="50" height="33" rx="3"/><path d="M25 33V42M12 42H38"/></g>
+          <g transform="translate(412 294)" stroke="#173f35" fill="#fffdf7" stroke-width="1.5"><rect width="36" height="48" rx="4"/><path d="M7 12H29M7 21H29M7 30H29"/><circle cx="27" cy="39" r="1" fill="#173f35"/></g>
+          <text x="90" y="367" text-anchor="middle" class="node-label">PC-01</text><text x="260" y="367" text-anchor="middle" class="node-label">PC-02</text><text x="430" y="367" text-anchor="middle" class="node-label">SRV-01</text>
+          <g transform="translate(20 126)"><rect width="146" height="38" rx="3" fill="#f0ead9"/><text x="12" y="24" class="ip-label">10.0.0.0 / 24</text></g>
+        </svg>
+        <div class="sheet-footer"><span data-i18n="diagramNote">A topology, not a black box.</span><span class="mono">ETH / IPv4</span></div>
+        <p class="diagram-caption" data-i18n="diagramCaption">Illustrative diagram · no real equipment monitored</p>
+      </div>
+    </section>
+
+    <div class="credential-band"><div class="wrap credential-grid">
+      <div><span class="credential-icon" aria-hidden="true">✓</span><p><strong>CCST Networking</strong><span data-i18n="certObtained">Certification earned · 2026</span></p></div>
+      <div><span class="credential-icon" aria-hidden="true">↗</span><p><strong>CCNA</strong><span data-i18n="certPreparing">Currently preparing</span></p></div>
+      <div><span class="credential-icon mono" aria-hidden="true">~</span><p><strong>Linux / SQL / Java</strong><span data-i18n="practice">Personal practice & academic projects</span></p></div>
+    </div></div>
+
+    <section id="profil" class="section wrap profile-section" aria-labelledby="profile-title">
+      <div class="section-marker"><span class="mono">01 /</span><span data-i18n="navProfile">Profile</span></div>
+      <div class="profile-layout">
+        <div class="portrait-block"><div class="portrait-frame"><img src="../assets/portrait.png" alt="Portrait of François de Gennaro" data-i18n-alt="portraitAlt" width="480" height="560" loading="lazy"></div><span class="portrait-label mono" data-i18n="portraitLabel">FRANÇOIS DE GENNARO · MONS, BE</span></div>
+        <div class="profile-copy"><p class="eyebrow" data-i18n="profileEyebrow">Networks first. Curiosity everywhere.</p><h2 id="profile-title" data-i18n="profileTitle">Understanding what’s under the hood.</h2><p data-i18n="profileP1">I’m in the second year of a bachelor’s degree in computer science at IPHLF in Mons. My direction: networking, system administration and infrastructure, with an interest in automation.</p><p data-i18n="profileP2">I like tracing a problem back to its underlying mechanism: reading a configuration, following an exchange, isolating a cause. Linux is my personal environment too, not just a classroom topic.</p><p data-i18n="profileP3">Java and SQL have taught me to structure applications and their data. During my internship, I want to bring that combination of infrastructure and development to a team.</p><div class="profile-meta"><div><span class="meta-label" data-i18n="profileEducationLabel">Education</span><strong data-i18n="profileEducation">Bachelor’s in computer science · year 2</strong></div><div><span class="meta-label" data-i18n="profileDirectionLabel">Focus</span><strong data-i18n="profileDirection">Networks · Systems · Infrastructure</strong></div></div></div>
+      </div>
+    </section>
+
+    <section id="competences" class="section skills-section" aria-labelledby="skills-title"><div class="wrap">
+      <div class="section-marker"><span class="mono">02 /</span><span data-i18n="navSkills">Skills</span></div>
+      <div class="section-heading"><h2 id="skills-title" data-i18n="skillsTitle">A networking foundation.<br>A toolkit around it.</h2><p data-i18n="skillsIntro">Skills in progress, tied to actual practice. No arbitrary progress bars: here is what I work on and in which context.</p></div>
+      <div class="skill-list">
+        <article class="skill-row"><span class="skill-num mono">01</span><h3 data-i18n="skillNetwork">Networks</h3><div><p data-i18n="skillNetworkText">IPv4/IPv6 addressing, subnetting, TCP/IP, Ethernet, DNS and DHCP. Fundamentals validated by CCST Networking; further study towards the CCNA.</p><ul class="tags"><li>IPv4 / IPv6</li><li>TCP/IP</li><li>DNS / DHCP</li><li>Cisco</li></ul></div><span class="practice-label" data-i18n="levelCert">Certification & study</span></article>
+        <article class="skill-row"><span class="skill-num mono">02</span><h3 data-i18n="skillSystems">Systems</h3><div><p data-i18n="skillSystemsText">Daily Arch Linux use, command-line work and SSH access between my machines. Gradually building a personal lab environment.</p><ul class="tags"><li>Linux</li><li>Bash</li><li>SSH</li><li>Git</li></ul></div><span class="practice-label" data-i18n="levelPersonal">Personal practice</span></article>
+        <article class="skill-row"><span class="skill-num mono">03</span><h3 data-i18n="skillCloud">Cloud</h3><div><p data-i18n="skillCloudText">Deploying a VM and a container on Azure for a course assignment: SSH access, an HTTP rule in a network security group, and diagnosing deployment restrictions.</p><ul class="tags"><li>Azure VM</li><li>ACI</li><li>NSG</li><li>Docker</li></ul></div><span class="practice-label" data-i18n="levelLab">Hands-on assignment</span></article>
+        <article class="skill-row"><span class="skill-num mono">04</span><h3 data-i18n="skillCode">Code & data</h3><div><p data-i18n="skillCodeText">Object-oriented Java console applications, relational modelling, constraints, procedures and MariaDB triggers. Learning Python to extend my infrastructure work.</p><ul class="tags"><li>Java</li><li>SQL / MariaDB</li><li>HTML / CSS / JS</li><li>Python</li></ul></div><span class="practice-label" data-i18n="levelProjects">Projects & learning</span></article>
+      </div>
+    </div></section>
+
+    <section id="projets" class="section wrap" aria-labelledby="projects-title">
+      <div class="section-marker"><span class="mono">03 /</span><span data-i18n="navProjects">Projects</span></div>
+      <div class="section-heading"><h2 id="projects-title" data-i18n="projectsTitle">Fewer promises.<br>More substance.</h2><p data-i18n="projectsIntro">A network project in the design stage, academic applications and infrastructure experiments. Each project states what exists and what remains to be built.</p></div>
+      <article class="featured-project">
+        <div class="featured-copy"><span class="project-status" data-i18n="tfeStatus">MAIN PROJECT · DESIGN STAGE</span><p class="project-category mono" data-i18n="tfeCategory">NETWORKS / DIAGNOSTICS</p><h3>Track, Flag<br><em>& Execute.</em></h3><p data-i18n="tfeIntro">A tool for network administrators: represent a topology, trace a packet’s path, and understand why a test succeeds or fails.</p><ul class="tags tags-dark"><li>Ethernet / IPv4</li><li>ARP</li><li data-i18n="tfeRouting">Static routing</li><li>UML</li></ul><button class="project-link" data-project="tfe"><span data-i18n="tfeExplore">Explore the final-year project</span><span aria-hidden="true">↗</span></button></div>
+        <div class="tfe-notebook"><div class="notebook-top"><span class="mono">TFE / 2026–2027</span><span class="notebook-dots" aria-hidden="true">•••</span></div><p class="notebook-title" data-i18n="tfeNotebook">From an exchange to an explanation.</p><ol class="tfe-steps"><li><span class="mono">01</span><div><strong>TRACK</strong><p data-i18n="tfeStep1">Trace devices and the path taken.</p></div></li><li><span class="mono">02</span><div><strong>FLAG</strong><p data-i18n="tfeStep2">Identify and explain points of failure.</p></div></li><li><span class="mono">03</span><div><strong>EXECUTE</strong><p data-i18n="tfeStep3">Run a test within a defined topology.</p></div></li></ol><p class="notebook-note" data-i18n="tfeNote">Project objectives · simulation engine still to be developed</p></div>
+      </article>
+      <div class="project-grid">
+        <article class="project-card"><div class="card-art sql-art" aria-hidden="true"><span class="mono">RELATIONAL / SQL</span><div class="schema-tables"><span>utilisateur<br><small>PK id_utilisateur</small></span><i>1 — n</i><span>fragment<br><small>FK id_createur</small></span></div></div><div class="card-body"><p class="project-category mono" data-i18n="sqlCategory">DATABASE · ACADEMIC PROJECT</p><h3>Palimpseste / SQL</h3><p data-i18n="sqlIntro">Preserving text fragments, organising them and tracking their movements. A relational model, constraints and database-side logic.</p><ul class="tags"><li>MariaDB</li><li>SQL</li><li>Triggers</li></ul><button class="project-link" data-project="sql"><span data-i18n="sqlExplore">Explore the data model</span><span aria-hidden="true">↗</span></button></div></article>
+        <article class="project-card"><div class="card-art java-art" aria-hidden="true"><span class="mono">OBJECTS / PERSISTENCE</span><pre><span>abstract class</span> Fragment {
+  Citation
+  NoteLecture
+  PenseePersonnelle
+}</pre></div><div class="card-body"><p class="project-category mono" data-i18n="javaCategory">JAVA · CONSOLE APPLICATION</p><h3>Le Dernier des Palimpsestes</h3><p data-i18n="javaIntro">An object-oriented application to manage fragments, collections, groups and feedback requests, with persistence through serialisation.</p><ul class="tags"><li>Java</li><li>POO</li><li data-i18n="serialization">Serialisation</li></ul><button class="project-link" data-project="java"><span data-i18n="javaExplore">Explore the code structure</span><span aria-hidden="true">↗</span></button></div></article>
+        <article class="project-card"><div class="card-art infra-art" aria-hidden="true"><span class="mono">INFRASTRUCTURE / LAB</span><div class="terminal-lines"><span>$ ssh serveur</span><span>$ az container create …</span><span class="terminal-muted">Linux · VM · HTTP · NSG</span></div></div><div class="card-body"><p class="project-category mono" data-i18n="infraCategory">LINUX & AZURE · HANDS-ON WORK</p><h3 data-i18n="infraTitle">From workstation to service</h3><p data-i18n="infraIntro">Connecting my machines through SSH and deploying on Azure. Two settings to put theory to the test with services, access and configuration errors.</p><ul class="tags"><li>Linux</li><li>SSH</li><li>Azure</li></ul><button class="project-link" data-project="infra"><span data-i18n="infraExplore">Explore the experiments</span><span aria-hidden="true">↗</span></button></div></article>
+      </div>
+    </section>
+
+    <section id="laboratoire" class="section lab-section" aria-labelledby="lab-title"><div class="wrap">
+      <div class="section-marker"><span class="mono">04 /</span><span data-i18n="navLab">Lab</span></div>
+      <div class="section-heading"><div><p class="eyebrow" data-i18n="labEyebrow">Fewer slides. A little practice.</p><h2 id="lab-title" data-i18n="labTitle">Your turn.</h2></div><p data-i18n="labIntro">A network calculator and a small challenge, built on the same JavaScript engine. Everything runs in your browser: no address is sent to a server.</p></div>
+      <noscript><p class="notice" data-i18n="noJsLab">The lab needs JavaScript. The rest of this website remains available without it.</p></noscript>
+      <div class="lab-shell" id="lab-shell" hidden>
+        <div class="lab-tabs" role="tablist" aria-label="Lab tools" data-i18n-aria="labTabs"><button id="calc-tab" role="tab" aria-selected="true" aria-controls="calc-panel" tabindex="0" data-mode="calc"><span class="tab-number mono">01</span><span data-i18n="calculatorTab">IPv4 calculator</span></button><button id="challenge-tab" role="tab" aria-selected="false" aria-controls="challenge-panel" tabindex="-1" data-mode="challenge"><span class="tab-number mono">02</span><span data-i18n="challengeTab">Network challenge</span></button><span class="lab-local mono" data-i18n="labLocal">100% LOCAL</span></div>
+        <div id="calc-panel" role="tabpanel" aria-labelledby="calc-tab">
+          <div class="calculator-layout"><div class="calc-inputs"><h3>IPv4 / CIDR</h3><p data-i18n="calcIntro">One address. One prefix. An unambiguous subnet.</p><form id="calculator-form" novalidate><div class="input-row"><div class="field ip-field"><label for="ip-address" data-i18n="ipLabel">IPv4 address</label><input id="ip-address" name="address" value="192.168.1.42" type="text" inputmode="decimal" spellcheck="false" autocomplete="off" required aria-describedby="calc-error"></div><div class="field prefix-field"><label for="prefix" data-i18n="prefixLabel">Prefix</label><div class="prefix-input"><span aria-hidden="true">/</span><input id="prefix" name="prefix" value="24" inputmode="numeric" type="text" maxlength="2" required aria-describedby="calc-error"></div></div></div><button class="button button-primary" type="submit"><span data-i18n="calculate">Calculate subnet</span><span aria-hidden="true">→</span></button><p id="calc-error" class="error-message" role="alert"></p></form><div class="examples"><span data-i18n="tryExample">Try</span><button type="button" data-example="10.42.7.81/26">/26</button><button type="button" data-example="10.0.0.0/31">/31</button><button type="button" data-example="203.0.113.7/32">/32</button></div></div>
+          <div class="calc-results" id="calc-results" aria-live="polite" aria-atomic="true"><div class="result-heading"><span class="mono" data-i18n="resultNetwork">SUBNET</span><strong id="result-cidr" class="mono">192.168.1.0/24</strong></div><dl class="result-grid"><div><dt data-i18n="mask">Subnet mask</dt><dd id="result-mask">255.255.255.0</dd></div><div><dt>Wildcard</dt><dd id="result-wildcard">0.0.0.255</dd></div><div><dt data-i18n="network">Network address</dt><dd id="result-network">192.168.1.0</dd></div><div><dt>Broadcast</dt><dd id="result-broadcast">192.168.1.255</dd></div><div><dt data-i18n="firstHost">First host</dt><dd id="result-firstHost">192.168.1.1</dd></div><div><dt data-i18n="lastHost">Last host</dt><dd id="result-lastHost">192.168.1.254</dd></div><div class="host-result"><dt data-i18n="hostCount">Usable hosts</dt><dd id="result-hostCount">254</dd></div></dl><p id="subnet-note" class="result-note"></p></div></div>
+          <details class="binary-details"><summary data-i18n="binaryTitle">Show the address in binary</summary><div class="binary-key"><span><i class="network-bit-key"></i><span data-i18n="networkBits">Network bits</span></span><span><i class="host-bit-key"></i><span data-i18n="hostBits">Host bits</span></span></div><div id="binary-result" class="binary-result" aria-label="IP address in binary" data-i18n-aria="binaryLabel"></div><p class="fine-print" data-i18n="binaryNote">The prefix is the number of bits reserved for the network. The remaining bits identify the host portion.</p></details>
+        </div>
+        <div id="challenge-panel" role="tabpanel" aria-labelledby="challenge-tab" hidden><div class="challenge-layout"><div><p class="eyebrow" data-i18n="challengeEyebrow">Some mental arithmetic?</p><h3 data-i18n="challengeTitle">Find the subnet.</h3><p data-i18n="challengeIntro">No timer. No leaderboard. Just an address and a good reason to revisit powers of two.</p><p class="challenge-score"><span data-i18n="scoreLabel">Session score</span><strong id="challenge-score" class="mono">0 / 0</strong></p><p class="fine-print" data-i18n="challengeScope">IPv4 challenges on private ranges, from /16 to /30.</p></div><div class="challenge-question"><span class="mono" id="challenge-cidr"></span><h4 id="challenge-question"></h4><form id="challenge-form" novalidate><label class="sr-only" for="challenge-answer" data-i18n="answerLabel">Your answer</label><input id="challenge-answer" type="text" inputmode="decimal" spellcheck="false" autocomplete="off" required aria-describedby="challenge-feedback"><div class="challenge-actions"><button id="challenge-check" class="button button-primary" type="submit" data-i18n="checkAnswer">Check answer</button><button id="challenge-next" class="text-button" type="button" data-i18n="nextChallenge">Another challenge →</button></div></form><p id="challenge-feedback" class="challenge-feedback" role="status" aria-live="polite"></p></div></div></div>
+      </div>
+      <aside class="future-lab"><span class="future-symbol" aria-hidden="true">＋</span><div><h3 data-i18n="futureTitle">The next playground</h3><p data-i18n="futureText">A small topology and packet-tracing application, with JavaScript, Python and SQL. A future direction for the lab, not an available feature.</p></div><span class="future-badge" data-i18n="futureBadge">PLANNED</span></aside>
+    </div></section>
+
+    <section id="contact" class="section wrap contact-section" aria-labelledby="contact-title"><div class="section-marker"><span class="mono">05 /</span><span data-i18n="navContact">Contact</span></div><div class="contact-layout"><div><p class="eyebrow" data-i18n="contactEyebrow">An internship. A team. Hands-on work.</p><h2 id="contact-title" data-i18n="contactTitle">Let’s make<br>the connection.</h2><p data-i18n="contactIntro">Looking for an intern who is curious about networks and systems, and happy to work with code and data too? Let’s talk.</p></div><div class="contact-links"><a class="email-link" href="mailto:francois.degennaro@mailbox.org"><span class="meta-label" data-i18n="emailLabel">Get in touch</span><strong>francois.degennaro<br>@mailbox.org <span aria-hidden="true">↗</span></strong></a><a class="contact-row" href="https://www.linkedin.com/in/françois-de-gennaro-it/" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><span aria-hidden="true">↗</span></a><a class="contact-row" href="https://github.com/erebethos" target="_blank" rel="noopener noreferrer"><span>GitHub <small>@erebethos</small></span><span aria-hidden="true">↗</span></a><a class="contact-row" href="mailto:francois.degennaro@mailbox.org?subject=CV%20%E2%80%94%20Fran%C3%A7ois%20de%20Gennaro"><span data-i18n="requestCv">Request my CV</span><span aria-hidden="true">↗</span></a></div></div></section>
+  </main>
+  <footer class="site-footer"><div class="wrap footer-inner"><a href="#accueil">François de Gennaro<span class="footer-dot">.</span></a><p data-i18n="footerNote">Networks, systems & curiosity.</p><span class="mono">© 2026</span><a class="back-top" href="#accueil" data-i18n="backTop">Back to top ↑</a></div></footer>
+  <dialog id="project-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><span class="mono" data-i18n="projectSheet">PROJECT NOTES</span><button id="dialog-close" class="dialog-close" aria-label="Close project notes" data-i18n-aria="closeDialog">×</button></div><div id="dialog-content"></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
