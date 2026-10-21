@@ -1,6 +1,6 @@
-# Présentation GitHub à appliquer
+# Présentation GitHub
 
-Les textes suivants correspondent aux trois dépôts publics et au positionnement du portfolio. Les réglages About, les topics, la bio et les épingles se modifient dans l’interface GitHub ; ce fichier prépare leurs valeurs et ne les applique pas automatiquement.
+Présentation appliquée le 21 octobre 2026 aux trois dépôts publics et au profil [erebethos](https://github.com/erebethos). Ce fichier conserve les descriptions, les topics et le texte du profil pour les prochaines mises à jour.
 
 ## Description et topics des dépôts
 
@@ -10,7 +10,7 @@ Les textes suivants correspondent aux trois dépôts publics et au positionnemen
 | `palimpseste-bdd` | Modèle relationnel MariaDB : 24 tables, 5 triggers, 12 procédures. Installation, scénarios de test et schémas consultables. | `mariadb`, `sql`, `database-design`, `stored-procedures`, `triggers`, `academic-project` | `https://portfolio.jobandjudith.com/#projets` |
 | `vitrine-pro` | Portfolio FR/EN orienté réseaux et infrastructure : projets Java/SQL, laboratoire IPv4 et déploiement GitHub Actions vers o2switch. | `portfolio`, `networking`, `ipv4`, `linux`, `javascript`, `github-actions`, `ssh`, `rsync` | `https://portfolio.jobandjudith.com/` |
 
-Dans chaque dépôt : roue dentée de l’encadré **About**, puis renseigner Description, Website et Topics.
+Descriptions, liens Website et topics enregistrés dans l’encadré **About** de chaque dépôt.
 
 ## Bio du profil
 
@@ -24,9 +24,9 @@ Website : `https://portfolio.jobandjudith.com/`.
 2. `palimpseste-bdd` — modélisation, règles métier et logique SQL.
 3. `le-dernier-des-palimpsestes` — programmation orientée objet et persistance.
 
-## README du profil prêt à copier
+## README du profil publié
 
-GitHub affiche automatiquement le `README.md` d’un dépôt public nommé exactement **erebethos** sur le profil du compte. Le dépôt n’existait pas lors de cette préparation. Créer ce dépôt avec la visibilité publique, puis utiliser le contenu suivant :
+Le dépôt public [erebethos/erebethos](https://github.com/erebethos/erebethos) contient ce `README.md`, affiché automatiquement sur le profil. La source de référence est désormais ce dépôt ; la copie ci-dessous conserve le texte publié initialement :
 
 ```markdown
 # François de Gennaro
