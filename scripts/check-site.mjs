@@ -18,6 +18,11 @@ for (const [path, lang] of [['index.html','fr'],['en/index.html','en']]) {
     await access(file);
   }
   for (const m of html.matchAll(/data-i18n(?:-aria|-alt)?="([^"]+)"/g)) assert.ok(m[1] in english, `Missing EN: ${m[1]}`);
+  const cvName = `CV_Francois_de_Gennaro_${lang.toUpperCase()}.pdf`;
+  const cvPrefix = lang === 'en' ? '../' : './';
+  assert.ok(html.includes(`href="${cvPrefix}assets/cv/${cvName}" download="${cvName}" data-cv-download`), `${path}: wrong CV download`);
+  const cv = await readFile(new URL(`assets/cv/${cvName}`, root));
+  assert.equal(cv.subarray(0, 5).toString(), '%PDF-', `${path}: invalid CV PDF`);
   assert.ok(!html.includes('href="#"'), `${path}: dummy link`);
   assert.ok(!html.includes('version pédagogique'), `${path}: obsolete school copy`);
   assert.ok(html.includes('rel="canonical"'));
@@ -37,3 +42,4 @@ for (const [path, lang] of [['index.html','fr'],['en/index.html','en']]) {
 assert.deepEqual(Object.keys(messages.fr).sort(), Object.keys(messages.en).sort(), 'Runtime translations must match');
 for (const project of ['tfe','sql','java','infra']) assert.deepEqual(Object.keys(messages.fr[project]).sort(), Object.keys(messages.en[project]).sort());
 console.log('Static checks passed: FR/EN, local assets, IDs, anchors, translations, metadata and no dummy links.');
+

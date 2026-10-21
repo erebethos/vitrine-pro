@@ -36,6 +36,7 @@ html = html.replace('<html lang="fr">', '<html lang="en">')
   .replace('content="fr_BE"', 'content="en_GB"')
   .replace(`rel="canonical" href="${origin}/"`, `rel="canonical" href="${origin}/en/"`)
   .replaceAll('"./assets/', '"../assets/')
+  .replaceAll('CV_Francois_de_Gennaro_FR.pdf', 'CV_Francois_de_Gennaro_EN.pdf')
   .replace('href="./" lang="fr" hreflang="fr" data-language="fr" aria-current="page"', 'href="../?lang=fr" lang="fr" hreflang="fr" data-language="fr"')
   .replace('href="./en/" lang="en" hreflang="en" data-language="en"', 'href="./" lang="en" hreflang="en" data-language="en" aria-current="page"');
 await mkdir(new URL('dist/en/', root), { recursive: true });
@@ -45,3 +46,4 @@ for (const [path, hash] of Object.entries({profil:'profil',competences:'competen
   await writeFile(new URL(`dist/${path}.html`, root), `<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="refresh" content="0;url=./#${hash}"><title>François de Gennaro</title><a href="./#${hash}">François de Gennaro — Continuer</a></html>\n`);
 }
 console.log(`Generated FR/EN for ${origin} (${used.size} translation keys), plus 6 legacy redirects.`);
+

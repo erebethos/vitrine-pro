@@ -36,7 +36,7 @@ export const english = {
   challengeEyebrow: 'Some mental arithmetic?', challengeTitle: 'Find the subnet.', challengeIntro: 'No timer. No leaderboard. Just an address and a good reason to revisit powers of two.', scoreLabel: 'Session score', challengeScope: 'IPv4 challenges on private ranges, from /16 to /30.', answerLabel: 'Your answer', checkAnswer: 'Check answer', nextChallenge: 'Another challenge →',
   futureTitle: 'The next playground', futureText: 'A small topology and packet-tracing application, with JavaScript, Python and SQL. A future direction for the lab, not an available feature.', futureBadge: 'PLANNED',
   contactEyebrow: 'An internship. A team. Hands-on work.', contactTitle: 'Let’s make<br>the connection.', contactIntro: 'Looking for an intern who is curious about networks and systems, and happy to work with code and data too? Let’s talk.',
-  emailLabel: 'Get in touch', requestCv: 'Request my CV', footerNote: 'Networks, systems & curiosity.', backTop: 'Back to top ↑', projectSheet: 'PROJECT NOTES', closeDialog: 'Close project notes'
+  emailLabel: 'Get in touch', requestCv: 'Download my CV (PDF)', footerNote: 'Networks, systems & curiosity.', backTop: 'Back to top ↑', projectSheet: 'PROJECT NOTES', closeDialog: 'Close project notes'
 };
 
 export const messages = {
@@ -82,3 +82,4 @@ export const messages = {
     infra: {status: 'Personal practice & academic assignment', title: 'From workstation to service', intro: 'Two complementary settings: my Linux machines and a practical assignment using Azure for Students.', heading1: 'Linux and remote access', text1: 'Daily Arch Linux use, SSH access from Samsa to K., and a gradually developing lab. Centralising Apache/MySQL is a planned evolution, not an available service advertised here.', heading2: 'What was done on Azure', items: ['Deploying a VM in a region allowed by the student subscription.', 'Connecting through SSH and adding an HTTP rule to a network security group.', 'Deploying a Docker image in Azure Container Instances.', 'Investigating blockers related to available VM sizes and region policies.'], heading3: 'What this experience demonstrates', text3: 'Reading errors, distinguishing configuration issues from subscription restrictions, adapting a deployment and documenting the steps. Assignment resources are not advertised as permanent public services.', conclusion: 'Hands-on experience informs the profile without being misrepresented as production experience.'}
   }
 };
+
