@@ -1,70 +1,88 @@
-# François de Gennaro — Réseaux & infrastructure
+# François de Gennaro — réseaux et infrastructure
 
-Refonte professionnelle du site vitrine scolaire. HTML sémantique, CSS et JavaScript natifs, sans dépendance de production ni outil de compilation frontend.
+Portfolio bilingue d’un étudiant en informatique à Mons, certifié **Cisco CCST Networking**. Présentation des projets Java, SQL et infrastructure, avec un laboratoire IPv4 interactif.
 
-## Structure
+[Voir le site](https://portfolio.jobandjudith.com/) · [English](README.en.md) · [CV français](https://portfolio.jobandjudith.com/assets/cv/CV_Francois_de_Gennaro_FR.pdf) · [CV anglais](https://portfolio.jobandjudith.com/assets/cv/CV_Francois_de_Gennaro_EN.pdf)
 
-- `dist/index.html` : source éditoriale française complète et lisible sans JavaScript.
-- `dist/en/index.html` : version anglaise générée depuis la structure commune.
-- `dist/assets/content.mjs` : traductions anglaises, messages du laboratoire et fiches projets FR/EN.
-- `dist/assets/network.mjs` : moteur IPv4 pur, indépendant du DOM.
-- `dist/assets/app.mjs` : interactions, laboratoire et fiches projets.
-- `tests/network.test.mjs` : cas limites et invariants du calculateur.
+## À explorer
 
-## Préparer et vérifier
+- Profil, compétences et projets avec leurs périmètres réels.
+- Pages françaises et anglaises accessibles à des URL distinctes.
+- Calculateur IPv4/CIDR de `/0` à `/32`, représentation binaire et défi réseau.
+- Fiches des projets [Java](https://github.com/erebethos/le-dernier-des-palimpsestes) et [MariaDB](https://github.com/erebethos/palimpseste-bdd), avec liens vers leurs sources publiques.
+- CV PDF téléchargeable dans la langue de la page et certification vérifiable sur Credly.
 
-Node.js 20 ou plus récent. Aucune installation nécessaire.
+## Lancer localement
+
+Prérequis : **Node.js 20 ou plus récent** pour générer et vérifier les pages ; **Python 3** pour le serveur local présenté ci-dessous. Aucune dépendance npm à installer.
 
 ```sh
+git clone https://github.com/erebethos/vitrine-pro.git
+cd vitrine-pro
+git switch refonte-pro-2026
 npm run build
 npm test
 npm run check
-```
-
-Servir ensuite **le dossier `dist/`** avec un serveur statique, pas le dossier racine. Exemple de développement local :
-
-```sh
 python3 -m http.server 8000 --directory dist
 ```
 
-Ne pas ouvrir les fichiers via `file://` : les modules JavaScript ont besoin d’un serveur HTTP.
+Ouvrir <http://localhost:8000/> ou <http://localhost:8000/en/>. Servir `dist/`, sans ouvrir les pages en `file://` : les modules JavaScript nécessitent HTTP.
 
-## Choix techniques
+## Architecture
 
-- Badge officiel CCST Networking : image Cisco provenant de [la fiche Credly de la certification](https://www.credly.com/org/cisco/badge/cisco-certified-support-technician-networking-ccst-.1), conservée sans modification. Le badge renvoie vers [l’attestation nominative Credly fournie par François](https://www.credly.com/badges/8d5ce9d3-778d-4cd7-ad94-d92cddac642f/public_url).
+Site statique en **HTML sémantique, CSS et JavaScript natifs**. Node.js sert au build, aux vérifications et au déploiement ; il n’est pas un serveur applicatif en production. Aucune base de données ni framework frontend.
 
-- Deux URL FR/EN réelles, générées depuis une structure commune ; `lang`, titres, descriptions, canonical et hreflang localisés.
-- Préférence de langue stockée localement quand le navigateur l’autorise. Les liens restent fonctionnels sans stockage ni JavaScript.
-- Calculateur de /0 à /32 ; arithmétique non signée sans opérateurs bit à bit JavaScript signés. /31 traité comme une liaison point à point, /32 comme une adresse unique.
-- Mini-défi sur des plages privées de /16 à /30, correction et score de session. Aucun compte ni classement distant.
-- Onglets utilisables au clavier et fiches projets dans un dialogue natif.
-- Aucun appel réseau pour les adresses saisies, aucun outil d’analyse d’audience, aucune BDD artificielle.
-- Le moteur IPv4 calcule une plage mathématique : il ne prétend pas que toutes les adresses de la plage sont routables ou attribuables dans tous les contextes.
-- La topologie d’accueil est une illustration, pas un tableau de supervision ni une démo opérationnelle du TFE.
+| Chemin | Rôle |
+|---|---|
+| `dist/index.html` | Source française, lisible sans JavaScript |
+| `dist/en/index.html` | Page anglaise générée |
+| `dist/assets/content.mjs` | Traductions, fiches projets et URL des dépôts publics |
+| `dist/assets/network.mjs` | Calcul IPv4 indépendant du DOM |
+| `dist/assets/app.mjs` | Laboratoire, onglets et dialogues |
+| `dist/assets/cv/` | CV français et anglais |
+| `scripts/build-pages.mjs` | Génération EN et métadonnées selon l’origine |
+| `tests/` | Tests du moteur IPv4 et garde-fous du déploiement |
 
-## Contenu vérifié et limites
+Modifier la structure et les textes français dans `dist/index.html`, les traductions et messages dans `content.mjs`, puis régénérer. Ne pas modifier uniquement la page EN : elle serait écrasée au prochain build.
 
-Le TFE est présenté **en conception**, pas comme un moteur de simulation livré. Les projets SQL et Java sont distincts ; la version Java utilise la sérialisation fichier. Les services Azure du TP ne sont pas annoncés comme des ressources permanentes.
+## Vérifications et choix techniques
 
-Les dépôts privés ne sont pas rendus publics par cette refonte. Les fiches montrent quelques extraits et indiquent que le code peut être présenté sur demande.
+Les **12 tests** couvrent les adresses invalides, limites arithmétiques, `/31`, `/32`, les invariants sur 2 145 échantillons déterministes, les défis et le périmètre du déploiement. `npm run check` contrôle les traductions, liens locaux, identifiants HTML, métadonnées, téléchargements PDF et liens vers les sources.
 
-La future application JavaScript/Python/SQL est une piste réservée au laboratoire, hors périmètre de cette version.
+- Arithmétique non signée, sans opérateurs bit à bit signés JavaScript.
+- `/31` traité comme une liaison point à point ; `/32` comme une adresse hôte unique.
+- Calculs et défis exécutés dans le navigateur, sans envoyer les adresses saisies à un serveur.
+- Liens de langue fonctionnels sans stockage local ; contenu principal accessible sans JavaScript.
+- Onglets utilisables au clavier et dialogues natifs.
+- Badge Cisco conservé sans modification et relié à [l’attestation nominative Credly](https://www.credly.com/badges/8d5ce9d3-778d-4cd7-ad94-d92cddac642f/public_url).
 
-## Avant les candidatures
+## Déploiement opérationnel
 
-- Ajouter le CV PDF validé et son téléchargement direct (actuellement : demande par e-mail).
-- Confirmer les dates et modalités exactes du stage ; aucune date n’a été inventée dans la vitrine.
-- Valider les formulations de compétences et les traductions avec François.
-- Faire une passe visuelle réelle sur ordinateur et téléphone.
-- Créer le sous-domaine retenu `portfolio.jobandjudith.com` et configurer les accès de publication.
-- Rendre publics uniquement les dépôts ou extraits choisis explicitement.
+```mermaid
+flowchart TD
+  A[Push sur refonte-pro-2026] --> B[Génération des pages FR et EN]
+  B --> C[Tests et vérifications]
+  C --> D[Autorisation SSH temporaire via API cPanel]
+  D --> E[Transfert rsync sur SSH]
+  E --> F[Contrôle HTTPS de la révision publique]
+  F --> G[Retrait des autorisations ajoutées]
+  D -. Échec .-> G
+  E -. Échec .-> G
+```
 
-## Hébergement
+GitHub Actions publie sur **o2switch**, à l’adresse <https://portfolio.jobandjudith.com/>. La connexion vérifie la clé d’hôte SSH ; les secrets restent dans GitHub Actions. Les fichiers remplacés sont sauvegardés hors de la racine web ; ces sauvegardes différentielles ne constituent pas une copie intégrale du site.
 
-`.openai/hosting.json` identifie la version de validation hébergée avec Sites. `site.config.mjs` définit également la destination publique `https://portfolio.jobandjudith.com` chez o2switch.
+Le build local utilise l’origine de validation définie dans `site.config.mjs`. Le workflow fournit `SITE_ORIGIN=https://portfolio.jobandjudith.com` pour les URL canoniques et `hreflang` publiques. Pour reproduire cette génération localement :
 
-Le build standard conserve les métadonnées de la version de validation. Le workflow o2switch fournit `SITE_ORIGIN=https://portfolio.jobandjudith.com` pour générer canonical et hreflang sur le domaine public.
+```sh
+SITE_ORIGIN=https://portfolio.jobandjudith.com npm run build
+SITE_ORIGIN=https://portfolio.jobandjudith.com npm run check
+```
 
-La publication GitHub vers o2switch est préparée dans `.github/workflows/deploy-o2switch.yml`. Elle attend les secrets du compte et la variable `O2_DEPLOY_ENABLED=true`. Lire [la procédure de configuration](docs/deploy-o2switch.md). Aucun déploiement o2switch n’est annoncé comme effectué tant que le workflow n’a pas réussi.
+[Configuration du pipeline](docs/deploy-o2switch.md). `.openai/hosting.json` conserve l’identité de la version de validation Sites. La branche par défaut `refonte-pro-2026` contient le portfolio actuel ; `main` conserve le projet scolaire antérieur.
 
-La branche `main` conserve le projet scolaire. La refonte est isolée dans `refonte-pro-2026` ; aucune fusion dans `main` n’est réalisée automatiquement.
+## Périmètre et suite
+
+**Track, Flag & Execute est en conception** : la topologie d’accueil n’est pas une supervision réelle ni un moteur de simulation opérationnel. Java et SQL sont deux projets distincts ; les ressources Azure scolaires ne sont pas des services publics permanents. Une future application Python/SQL reste une piste, sans fonctionnalité annoncée comme livrée.
+
+Auteur : **François de Gennaro**, Mons, Belgique. [LinkedIn](https://www.linkedin.com/in/françois-de-gennaro-it/) · [GitHub](https://github.com/erebethos).

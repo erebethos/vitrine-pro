@@ -32,3 +32,8 @@
   @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
   @media print{.site-header,.lab-section,.hero-cta,.project-link,.site-footer,.skip-link,dialog{display:none!important}.wrap{width:100%}.section{padding-block:25px}.hero{padding:20px 0}.network-sheet{box-shadow:none}.credential-grid{padding:15px 0}.featured-project{background:#fff;color:#173f35;border:1px solid #ccc}.featured-copy>p:not(.project-category){color:#444}.project-card,.featured-project{break-inside:avoid}.profile-layout{gap:30px}.portrait-block{max-width:160px}.section-heading{margin-bottom:20px}.contact-layout{gap:30px}body{font-size:12px;background:#fff}.featured-copy .project-category,.project-status{color:#444}.tfe-notebook{box-shadow:none}}
 }
+
+@layer components {
+  .project-source-link{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:16px;padding-top:12px;border-top:1px solid var(--line);font-size:11px;color:var(--green)}
+  .project-source-link:hover{text-decoration:underline;text-underline-offset:4px}
+}

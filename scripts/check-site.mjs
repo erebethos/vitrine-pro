@@ -1,6 +1,6 @@
 import { readFile, access } from 'node:fs/promises';
 import assert from 'node:assert/strict';
-import { english, messages } from '../dist/assets/content.mjs';
+import { english, messages, projectRepositories } from '../dist/assets/content.mjs';
 import { site } from '../site.config.mjs';
 const root = new URL('../dist/', import.meta.url);
 const expectedOrigin = new URL(process.env.SITE_ORIGIN || site.previewOrigin).origin;
@@ -23,6 +23,7 @@ for (const [path, lang] of [['index.html','fr'],['en/index.html','en']]) {
   assert.ok(html.includes(`href="${cvPrefix}assets/cv/${cvName}" download="${cvName}" data-cv-download`), `${path}: wrong CV download`);
   const cv = await readFile(new URL(`assets/cv/${cvName}`, root));
   assert.equal(cv.subarray(0, 5).toString(), '%PDF-', `${path}: invalid CV PDF`);
+  for (const repoUrl of Object.values(projectRepositories)) assert.ok(html.includes(`href="${repoUrl}"`), `${path}: missing public source link`);
   assert.ok(!html.includes('href="#"'), `${path}: dummy link`);
   assert.ok(!html.includes('version pédagogique'), `${path}: obsolete school copy`);
   assert.ok(html.includes('rel="canonical"'));

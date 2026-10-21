@@ -1,5 +1,5 @@
 import { calculateSubnet, createChallenge, checkAnswer } from './network.mjs';
-import { messages } from './content.mjs';
+import { messages, projectRepositories } from './content.mjs';
 
 const lang = document.documentElement.lang === 'en' ? 'en' : 'fr';
 const t = messages[lang];
@@ -169,7 +169,14 @@ document.querySelectorAll('[data-project]').forEach(button => {
     if (project.code) content.append(element('pre', project.code));
     if (project.text3) content.append(element('p', project.text3));
     content.append(element('p', project.conclusion, 'dialog-conclusion'));
-    if (button.dataset.project === 'sql' || button.dataset.project === 'java') content.append(element('p', t.privateNote, 'private-note'));
+    const sourceUrl = projectRepositories[button.dataset.project];
+    if (sourceUrl) {
+      const link = element('a', t.sourceLink, 'project-link');
+      link.href = sourceUrl;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      content.append(link);
+    }
     dialog.showModal();
     dialog.scrollTop = 0;
   });
