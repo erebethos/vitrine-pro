@@ -1,9 +1,11 @@
 import { calculateSubnet, createChallenge, checkAnswer } from './network.mjs';
 import { messages, projectRepositories } from './content.mjs';
+import { mountTfeDemo } from './tfe-demo.mjs';
 
 const lang = document.documentElement.lang === 'en' ? 'en' : 'fr';
 const t = messages[lang];
 const $ = selector => document.querySelector(selector);
+mountTfeDemo($('#tfe-demo'), lang);
 
 // Language links remain ordinary navigable links; storage failure never blocks navigation.
 document.querySelectorAll('[data-language]').forEach(link => {
@@ -169,6 +171,12 @@ document.querySelectorAll('[data-project]').forEach(button => {
     if (project.code) content.append(element('pre', project.code));
     if (project.text3) content.append(element('p', project.text3));
     content.append(element('p', project.conclusion, 'dialog-conclusion'));
+    if (project.demoLink) {
+      const link = element('a', project.demoLink, 'project-link');
+      link.href = '#tfe-demo';
+      link.addEventListener('click', () => dialog.close());
+      content.append(link);
+    }
     const sourceUrl = projectRepositories[button.dataset.project];
     if (sourceUrl) {
       const link = element('a', t.sourceLink, 'project-link');

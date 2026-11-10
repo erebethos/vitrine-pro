@@ -101,9 +101,95 @@
       <div class="section-marker"><span class="mono">03 /</span><span data-i18n="navProjects">Projects</span></div>
       <div class="section-heading"><h2 id="projects-title" data-i18n="projectsTitle">Fewer promises.<br>More substance.</h2><p data-i18n="projectsIntro">A network project in the design stage, academic applications and infrastructure experiments. Each project states what exists and what remains to be built.</p></div>
       <article class="featured-project">
-        <div class="featured-copy"><span class="project-status" data-i18n="tfeStatus">MAIN PROJECT · DESIGN STAGE</span><p class="project-category mono" data-i18n="tfeCategory">NETWORKS / DIAGNOSTICS</p><h3>Track, Flag<br><em>& Execute.</em></h3><p data-i18n="tfeIntro">A tool for network administrators: represent a topology, trace a packet’s path, and understand why a test succeeds or fails.</p><ul class="tags tags-dark"><li>Ethernet / IPv4</li><li>ARP</li><li data-i18n="tfeRouting">Static routing</li><li>UML</li></ul><button class="project-link" data-project="tfe"><span data-i18n="tfeExplore">Explore the final-year project</span><span aria-hidden="true">↗</span></button></div>
+        <div class="featured-copy">
+          <span class="project-status" data-i18n="tfeStatus">MAIN PROJECT · DESIGN STAGE</span>
+          <p class="project-category mono" data-i18n="tfeCategory">NETWORKS / DIAGNOSTICS</p>
+          <h3>Track, Flag<br><em>& Execute.</em></h3>
+          <p data-i18n="tfeIntro">A tool for network administrators to trace an exchange from the physical link to the application service and pinpoint the cause of a failure.</p>
+          <ul class="tags tags-dark"><li>Ethernet / IPv4</li><li>ARP</li><li data-i18n="tfeRouting">Static routing</li><li>TCP / HTTP</li><li>UML</li></ul>
+          <a class="project-link" href="#tfe-demo"><span data-i18n="tfeDemoLink">Try the demo</span><span aria-hidden="true">↓</span></a>
+          <button type="button" class="project-link" data-project="tfe"><span data-i18n="tfeExplore">Explore the final-year project</span><span aria-hidden="true">↗</span></button>
+        </div>
         <div class="tfe-notebook"><div class="notebook-top"><span class="mono">TFE / 2026–2027</span><span class="notebook-dots" aria-hidden="true">•••</span></div><p class="notebook-title" data-i18n="tfeNotebook">From an exchange to an explanation.</p><ol class="tfe-steps"><li><span class="mono">01</span><div><strong>TRACK</strong><p data-i18n="tfeStep1">Trace devices and the path taken.</p></div></li><li><span class="mono">02</span><div><strong>FLAG</strong><p data-i18n="tfeStep2">Identify and explain points of failure.</p></div></li><li><span class="mono">03</span><div><strong>EXECUTE</strong><p data-i18n="tfeStep3">Run a test within a defined topology.</p></div></li></ol><p class="notebook-note" data-i18n="tfeNote">Project objectives · simulation engine still to be developed</p></div>
       </article>
+      <div id="tfe-demo" class="tfe-demo" role="region" aria-labelledby="tfe-demo-title">
+        <div class="tfe-demo-heading">
+          <div>
+            <p class="eyebrow" data-i18n="tfeDemoEyebrow">INTERACTIVE PROTOTYPE · TRACK, FLAG &amp; EXECUTE</p>
+            <h4 id="tfe-demo-title" data-i18n="tfeDemoTitle">From the link to the HTTP response.</h4>
+            <p data-i18n="tfeDemoIntro">Five predefined scenarios on one topology. Step back through the trace to see what happened to the exchange.</p>
+          </div>
+          <label class="tfe-scenario" data-tfe-controls hidden>
+            <span class="meta-label" data-i18n="tfeScenarioLabel">Scenario</span>
+            <select data-tfe-scenario>
+              <option value="ok" data-i18n="tfeScenarioOk" selected>HTTP 200 · Successful exchange</option>
+              <option value="link" data-i18n="tfeScenarioLink">S1–R1 link down</option>
+              <option value="route" data-i18n="tfeScenarioRoute">Missing return route on R2</option>
+              <option value="tcp" data-i18n="tfeScenarioTcp">TCP port 80 closed</option>
+              <option value="http" data-i18n="tfeScenarioHttp">HTTP resource not found</option>
+            </select>
+          </label>
+        </div>
+        <p class="tfe-fallback" data-tfe-fallback data-i18n="tfeNoJs">Enable JavaScript to step through the demo traces.</p>
+        <div data-tfe-trace hidden>
+          <figure class="tfe-diagram">
+            <figcaption class="tfe-diagram-caption">
+              <span class="mono" data-i18n="tfeTopologyLabel">CURRENT PATH</span>
+              <span class="mono" data-tfe-phase></span>
+            </figcaption>
+            <div class="tfe-topology" role="img" aria-label="Ethernet topology from left to right. Client, switch S1, router R1, router R2, web server." data-i18n-aria="tfeTopologyAria">
+              <div class="tfe-node" data-tfe-node>
+                <span class="tfe-device-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M12 17v4m-4 0h8"/></svg></span>
+                <span data-tfe-device>Client</span>
+              </div>
+              <span class="tfe-wire" data-tfe-wire aria-hidden="true"></span>
+              <div class="tfe-node" data-tfe-node>
+                <span class="tfe-device-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 11v2m4-2v2m4-2v2m4-2v2"/></svg></span>
+                <span data-tfe-device>S1</span>
+              </div>
+              <span class="tfe-wire" data-tfe-wire aria-hidden="true"></span>
+              <div class="tfe-node" data-tfe-node>
+                <span class="tfe-device-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="18" rx="3"/><path d="M6 9h11m-3-3 3 3-3 3m4 3H7m3-3-3 3 3 3"/></svg></span>
+                <span data-tfe-device>R1</span>
+              </div>
+              <span class="tfe-wire" data-tfe-wire aria-hidden="true"></span>
+              <div class="tfe-node" data-tfe-node>
+                <span class="tfe-device-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="18" rx="3"/><path d="M6 9h11m-3-3 3 3-3 3m4 3H7m3-3-3 3 3 3"/></svg></span>
+                <span data-tfe-device>R2</span>
+              </div>
+              <span class="tfe-wire" data-tfe-wire aria-hidden="true"></span>
+              <div class="tfe-node" data-tfe-node>
+                <span class="tfe-device-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M5 9h14m-14 6h14M9 5v1m0 6v1m0 5v1"/></svg></span>
+                <span data-tfe-device>Web</span>
+              </div>
+            </div>
+            <div class="tfe-networks mono">
+              <span>192.168.10.0<wbr>/24</span>
+              <span>10.0.0.0<wbr>/30</span>
+              <span>192.168.20.0<wbr>/24</span>
+            </div>
+          </figure>
+          <ol class="tfe-layers" aria-label="OSI layers. Session and presentation are planned for later stages of the project." data-i18n-aria="tfeLayersLabel">
+            <li><span class="mono">01</span><span data-i18n="tfeLayer1">Physical</span></li>
+            <li><span class="mono">02</span><span data-i18n="tfeLayer2">Data link</span></li>
+            <li><span class="mono">03</span><span data-i18n="tfeLayer3">Network</span></li>
+            <li><span class="mono">04</span><span data-i18n="tfeLayer4">Transport</span></li>
+            <li class="tfe-planned"><span class="mono">05</span><span>Session</span><small data-i18n="tfeLayerPlanned">Planned</small></li>
+            <li class="tfe-planned"><span class="mono">06</span><span data-i18n="tfeLayer6">Presentation</span><small data-i18n="tfeLayerPlanned">Planned</small></li>
+            <li><span class="mono">07</span><span>Application</span></li>
+          </ol>
+          <div class="tfe-diagnostic" data-tfe-diagnostic role="status" aria-atomic="true">
+            <p class="mono" data-tfe-step></p>
+            <h5 data-tfe-step-title></h5>
+            <p data-tfe-step-detail></p>
+          </div>
+          <div class="tfe-trace-nav">
+            <button type="button" data-tfe-replay data-i18n="tfeReplay">Replay</button>
+            <button type="button" data-tfe-prev><span aria-hidden="true">←</span> <span data-i18n="tfePrevious">Previous</span></button>
+            <button type="button" data-tfe-next><span data-i18n="tfeNext">Next</span> <span aria-hidden="true">→</span></button>
+          </div>
+        </div>
+      </div>
       <div class="project-grid">
         <article class="project-card"><div class="card-art sql-art" aria-hidden="true"><span class="mono">RELATIONAL / SQL</span><div class="schema-tables"><span>utilisateur<br><small>PK id_utilisateur</small></span><i>1 — n</i><span>fragment<br><small>FK id_createur</small></span></div></div><div class="card-body"><p class="project-category mono" data-i18n="sqlCategory">DATABASE · ACADEMIC PROJECT</p><h3>Palimpseste / SQL</h3><p data-i18n="sqlIntro">Preserving text fragments, organising them and tracking their movements. A relational model, constraints and database-side logic.</p><ul class="tags"><li>MariaDB</li><li>SQL</li><li>Triggers</li></ul><button class="project-link" data-project="sql"><span data-i18n="sqlExplore">Explore the data model</span><span aria-hidden="true">↗</span></button><a class="project-source-link" href="https://github.com/erebethos/palimpseste-bdd" target="_blank" rel="noopener noreferrer"><span data-i18n="publicSource">View source on GitHub</span><span aria-hidden="true">↗</span></a></div></article>
         <article class="project-card"><div class="card-art java-art" aria-hidden="true"><span class="mono">OBJECTS / PERSISTENCE</span><pre><span>abstract class</span> Fragment {
