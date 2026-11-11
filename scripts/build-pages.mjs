@@ -29,10 +29,10 @@ html = html.replace(/<[^>]+\bdata-i18n-(aria|alt)="[^"]+"[^>]*>/g, tag => tag.re
   return `${name}="${english[key].replaceAll('&', '&amp;').replaceAll('"', '&quot;')}"`;
 }));
 html = html.replace('<html lang="fr">', '<html lang="en">')
-  .replace('<title>François de Gennaro — Réseaux & infrastructure</title>', '<title>François de Gennaro — Networks & infrastructure</title>')
-  .replace(/<meta name="description"[^>]+>/, '<meta name="description" content="Computer science student in Mons, Belgium, and CCST Networking certified. Explore my networking, Linux, Java and SQL projects, plus an interactive IPv4 lab.">')
-  .replace('property="og:title" content="François de Gennaro — Réseaux & infrastructure"', 'property="og:title" content="François de Gennaro — Networks & infrastructure"')
-  .replace('property="og:description" content="Un profil orienté réseaux et systèmes. Des projets concrets, du code et un laboratoire IPv4 à essayer."', 'property="og:description" content="Networks and systems, hands-on projects, code and an interactive IPv4 lab."')
+  .replace('<title>François de Gennaro — Réseaux & développement logiciel</title>', '<title>François de Gennaro — Networks & software development</title>')
+  .replace(/<meta name="description"[^>]+>/, '<meta name="description" content="Hybrid profile in Mons, Belgium: networks, Linux and software development. Java and SQL projects, Python tooling and Rust learning. Seeking an internship.">')
+  .replace('property="og:title" content="François de Gennaro — Réseaux & développement logiciel"', 'property="og:title" content="François de Gennaro — Networks & software development"')
+  .replace('property="og:description" content="Réseaux et développement logiciel : projets Java et SQL, scripts Python, apprentissage Rust et laboratoire IPv4 interactif."', 'property="og:description" content="Networks and software development: Java and SQL projects, Python scripts, Rust learning and an interactive IPv4 lab."')
   .replace('content="fr_BE"', 'content="en_GB"')
   .replace(`rel="canonical" href="${origin}/"`, `rel="canonical" href="${origin}/en/"`)
   .replaceAll('"./assets/', '"../assets/')

@@ -1,6 +1,6 @@
-# François de Gennaro — réseaux et infrastructure
+# François de Gennaro — réseaux et développement logiciel
 
-Portfolio bilingue d’un étudiant en informatique à Mons, certifié **Cisco CCST Networking**. Présentation des projets Java, SQL et infrastructure, avec un laboratoire IPv4 interactif.
+Portfolio bilingue d’un étudiant en informatique à Mons, certifié **Cisco CCST Networking**. Profil hybride réseaux et développement : projets Java et SQL, outillage Python, apprentissage Rust et laboratoire IPv4 interactif.
 
 [Voir le site](https://portfolio.jobandjudith.com/) · [English](README.en.md) · [CV français](https://portfolio.jobandjudith.com/assets/cv/CV_Francois_de_Gennaro_FR.pdf) · [CV anglais](https://portfolio.jobandjudith.com/assets/cv/CV_Francois_de_Gennaro_EN.pdf)
 

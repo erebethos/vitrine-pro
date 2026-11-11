@@ -36,7 +36,7 @@ for (const [path, lang] of [['index.html','fr'],['en/index.html','en']]) {
   assert.ok(html.includes('data-language="fr"'));
   if (lang === 'en') {
     for (const french of ['À la recherche', 'Réseaux d’abord', 'Voir le périmètre', 'Premier hôte', 'Retour en haut', 'Fermer la fiche']) assert.ok(!html.includes(french), `Untranslated: ${french}`);
-    assert.ok(html.includes('Networks first. Curiosity everywhere.'));
+    assert.ok(html.includes(english.profileEyebrow));
     assert.ok(html.includes('Close project notes'));
   }
 }

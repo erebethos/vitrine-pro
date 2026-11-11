@@ -36,6 +36,18 @@
 @layer components {
   .project-source-link{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:16px;padding-top:12px;border-top:1px solid var(--line);font-size:11px;color:var(--green)}
   .project-source-link:hover{text-decoration:underline;text-underline-offset:4px}
+  .hero-focus{font-size:11px;line-height:1.7;color:var(--green);margin-top:18px;letter-spacing:.1em}
+  .hero-stack{margin-top:20px}
+  .hero-stack li{font-size:11px;padding:5px 11px;background:var(--sage);color:var(--green)}
+  .project-card-primary{border-color:var(--green)}
+  .project-card-primary .card-art{background:#dce5d2}
+  .python-art pre{font:12px/1.6 var(--mono);color:var(--green)}
+  #projets .project-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:0;margin-bottom:32px}
+  #projets .project-grid .card-body h3{min-height:0}
+  @media(max-width:600px){
+    .hero-focus{font-size:10px}
+    #projets .project-grid{grid-template-columns:1fr}
+  }
   .featured-copy .project-link:focus-visible { outline-color: var(--white); }
 
   .tfe-demo {
